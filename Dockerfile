@@ -1,6 +1,6 @@
 # Kibana
 
-FROM digitalwonderland/base:centos6
+FROM digitalwonderland/base:latest
 
 ADD ./src /
 
