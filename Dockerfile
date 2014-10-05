@@ -12,7 +12,7 @@ RUN rpm --import http://nginx.org/keys/nginx_signing.key \
 
 # Install Kibana
 RUN cd /tmp \
-    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz \
+    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-latest.tar.gz \
     && tar xzf kibana-*.tar.gz \
     && rm kibana-*.tar.gz \
     && mkdir -p /var/www/vhosts \
