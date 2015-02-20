@@ -4,21 +4,22 @@ FROM digitalwonderland/base:latest
 
 ADD ./src /
 
+RUN chmod +x /usr/local/sbin/start.sh
+
 # Install packages
-RUN rpm --import http://nginx.org/keys/nginx_signing.key \
-    && yum install -y nginx tar \
-    && rm /etc/nginx/conf.d/{default.conf,example_ssl.conf} \
-    && yum clean all
+RUN rpm --rebuilddb && yum install -y tar && yum clean all
 
 # Install Kibana
 RUN cd /tmp \
-    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-latest.tar.gz \
+    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz \
     && tar xzf kibana-*.tar.gz \
     && rm kibana-*.tar.gz \
-    && mkdir -p /var/www/vhosts \
-    && mv kibana-* /var/www/vhosts/kibana
+    && mv kibana-* /opt/kibana
+
+RUN groupadd -r kibana \
+    && useradd -c "Kibana" -g kibana -M -r -s /sbin/nologin kibana
 
 
-EXPOSE 80
+EXPOSE 5601
 
-ENTRYPOINT ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
+ENTRYPOINT ["/usr/local/sbin/start.sh"]
