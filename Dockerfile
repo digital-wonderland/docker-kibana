@@ -11,7 +11,7 @@ RUN rpm --rebuilddb && yum install -y tar && yum clean all
 
 # Install Kibana
 RUN cd /tmp \
-    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz \
+    && curl -O https://download.elasticsearch.org/kibana/kibana/kibana-4.0.1-linux-x64.tar.gz \
     && tar xzf kibana-*.tar.gz \
     && rm kibana-*.tar.gz \
     && mv kibana-* /opt/kibana
