@@ -1,6 +1,6 @@
 ## About:
 
-[Docker](http://www.docker.com/) image based on [digitalwonderland/base](https://registry.hub.docker.com/u/digitalwonderland/base/)
+This [Docker](http://www.docker.com/) image is built exactly as [digitalwonderland/docker-kibana](https://registry.hub.docker.com/u/digitalwonderland/kibana/), but is instead based on [java:7-jre](https://registry.hub.docker.com/u/digitalwonderland/base/), the very same as the official [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/) and [logstash](https://registry.hub.docker.com/_/logstash/) images
 
 ## Additional Software:
 
